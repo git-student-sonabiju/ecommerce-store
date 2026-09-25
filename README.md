@@ -1,124 +1,50 @@
 # ecommerce-store
 
-E-Commerce Full Stack Application
+A simple online store where customers can browse products, add them to a cart, place orders, and see or cancel eligible orders.
 
-This is a full-stack e-commerce application built with Java Spring Boot (backend) and React (frontend).
+## What you can do
 
-## Technology Stack
+- Create an account and sign in.
+- Browse products and add them to your cart.
+- Change quantities or remove items before checkout.
+- Place an order and view its items and status under **My Orders**.
+- Cancel an order while its status is **PLACED** or **CONFIRMED**.
+- Store administrators can manage products and update order statuses.
 
-### Backend
-- Java 21
-- Spring Boot
-- Spring Web / REST APIs
-- Spring Data JPA
-- Hibernate
-- Spring Security
-- JWT authentication
-- Maven
-- JUnit 5 + Mockito
+## Run the store
 
-### Frontend
-- React
-- JavaScript (ES6+)
-- HTML5
-- CSS3
-- Axios
-- React Router
+The easiest way to start the website is with Docker Desktop.
 
-### Database
-- PostgreSQL
+### Before you start
 
-### Tools
-- Git/GitHub
-- Bruno or Postman
-- Docker
+Install and open [Docker Desktop](https://www.docker.com/products/docker-desktop/). The first start needs an internet connection so Docker can download the required components.
 
-## Project Structure
+### Configure the login service
 
-```
-ecommerce-fullstack/
-├── backend/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/
-│   │   │   └── resources/
-│   │   └── test/
-│   │       ├── java/
-│   │       └── resources/
-│   └── pom.xml
-├── frontend/
-│   ├── public/
-│   │   └── index.html
-│   └── src/
-│       ├── components/
-│       ├── pages/
-│       ├── services/
-│       ├── contexts/
-│       ├── hooks/
-│       ├── utils/
-│       ├── styles/
-│       └── assets/
-│           ├── index.js
-│           └── index.css
-├── docker-compose.yml
-└── README.md
+For security, the backend settings file is not included in the repository. Before starting the store, make a copy of `backend/src/main/resources/application.example.properties` and name the copy `application.properties` in the same folder. Open the copy and replace the example JWT secret with a private random value at least 32 characters long. Keep `application.properties` private; it is excluded from Git.
+
+### Start the website
+
+Open a terminal in the project folder and run:
+
+```bash
+docker compose up --build -d
 ```
 
-## Getting Started
+When the containers have started, open [http://localhost:3000](http://localhost:3000). Create an account with **Register**, sign in, and start shopping.
 
-### Prerequisites
-- Java 21
-- Node.js (v16 or higher)
-- PostgreSQL
-- Docker and Docker Compose
+To stop the website, run this from the project folder:
 
-### Backend Setup
-1. Navigate to the `backend` directory
-2. Configure PostgreSQL connection in `src/main/resources/application.properties`
-3. Build and run the application using Maven:
-   ```bash
-   mvn spring-boot:run
-   ```
+```bash
+docker compose down
+```
 
-### Frontend Setup
-1. Navigate to the `frontend` directory
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm start
-   ```
+## Project folders
 
-### Docker Setup
-1. Ensure Docker and Docker Compose are installed
-2. From the root directory, run:
-   ```bash
-   docker-compose up --build
-   ```
+- `frontend/` contains the website customers use.
+- `backend/` contains the services that manage accounts, products, carts, and orders.
+- `docker-compose.yml` starts the website, backend, and database together.
 
-## Features
-- User registration and login
-- JWT-based authentication
-- Role-based authorization (USER and ADMIN)
-- Product CRUD operations
-- Product search and filtering
-- Product categories
-- Shopping cart
-- Add/update/remove cart items
-- Place orders
-- View order history
-- View order details
-- Admin product management
-- Admin order management
-- Update order status (PLACED, CONFIRMED, SHIPPED, DELIVERED, CANCELLED)
+## Technologies
 
-## API Documentation
-API endpoints are documented in the backend controller classes.
-
-## Contributing
-Please read CONTRIBUTING.md for details on our code of conduct and the process for submitting pull requests.
-
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details.
+The website uses React. The backend uses Java and Spring Boot. PostgreSQL stores product, account, cart, and order data. Docker runs the parts together.
