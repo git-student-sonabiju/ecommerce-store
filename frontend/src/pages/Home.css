@@ -1,0 +1,69 @@
+.store-home {
+  --home-ink: #192a35;
+  --home-muted: #63757b;
+  --home-teal: #087e78;
+  color: var(--home-ink);
+  text-align: left;
+  padding-bottom: 3rem;
+}
+
+.home-hero {
+  min-height: 440px;
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 26px;
+  background: linear-gradient(115deg, #f2f8f5 0%, #f4f6ed 52%, #e6f1e9 100%);
+  padding: 3.5rem 5.5%;
+}
+
+.hero-copy { position: relative; z-index: 1; max-width: 520px; }
+.hero-eyebrow, .section-kicker { color: var(--home-teal); font-size: .72rem; font-weight: 800; letter-spacing: .13em; }
+.hero-dot { display: inline-block; width: 8px; height: 8px; margin: 0 8px 1px 0; border-radius: 50%; background: #e79c52; }
+.hero-copy h1 { margin: 1.15rem 0 1rem; font-size: clamp(3rem, 6vw, 5.2rem); line-height: .98; letter-spacing: -.065em; font-weight: 800; }
+.hero-copy h1 span { color: var(--home-teal); }
+.hero-copy > p { max-width: 440px; color: var(--home-muted); font-size: 1.08rem; line-height: 1.75; }
+.hero-actions { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.7rem; }
+.home-primary-button { display: inline-flex; align-items: center; gap: 1.3rem; padding: .95rem 1.2rem; border-radius: 9px; background: var(--home-teal); color: white; font-weight: 700; text-decoration: none; box-shadow: 0 8px 20px #087e7829; transition: transform .18s, background .18s; }
+.home-primary-button:hover { background: #066762; color: white; transform: translateY(-2px); }
+.home-primary-button span { font-size: 1.3rem; line-height: 1; }
+.home-secondary-link { color: var(--home-ink); font-weight: 700; text-decoration: none; }
+.home-secondary-link:hover { color: var(--home-teal); }
+.hero-proof { display: flex; align-items: center; gap: .7rem; margin-top: 1.9rem; color: var(--home-muted); font-size: .85rem; }
+.proof-stars { color: #e39a4d; letter-spacing: .08em; }
+
+.hero-art { position: relative; height: 350px; }
+.hero-orbit { position: absolute; left: 50%; top: 50%; border: 1px solid #a5c4b466; border-radius: 50%; transform: translate(-50%, -50%) rotate(-23deg); }
+.orbit-one { width: 390px; height: 260px; }
+.orbit-two { width: 310px; height: 380px; transform: translate(-50%, -50%) rotate(29deg); }
+.hero-product { position: absolute; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid #ffffffb5; box-shadow: 0 18px 50px #25453b24; }
+.hero-product small { margin-top: .55rem; color: #566c67; font-size: .53rem; font-weight: 800; letter-spacing: .09em; }
+.product-laptop { top: 20%; left: 26%; width: 176px; height: 124px; border-radius: 14px; background: linear-gradient(145deg, #dbe9e4, #a8c4b9); transform: rotate(-8deg); }
+.product-laptop span { color: #416c64; font-size: 3.3rem; line-height: 1; }
+.product-headphones { top: 37%; left: 55%; width: 126px; height: 132px; border-radius: 22px; background: linear-gradient(145deg, #f4ddbe, #edbd83); transform: rotate(9deg); }
+.product-headphones span { color: #945f36; font-size: 3rem; line-height: 1; }
+.product-watch { top: 65%; left: 27%; width: 91px; height: 91px; border-radius: 24px; background: linear-gradient(145deg, #d1dced, #96a9ca); transform: rotate(-12deg); }
+.product-watch span { color: #415876; font-size: 3rem; }
+.hero-note { position: absolute; right: 1%; bottom: 2%; padding: .7rem 1rem; border-radius: 30px; background: #fff; color: #526b64; font-size: .76rem; box-shadow: 0 8px 28px #25453b18; }
+.hero-note span { color: #e39a4d; margin-right: .3rem; }
+
+.home-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; padding: 2rem 1rem 2.3rem; border-bottom: 1px solid #e8eeeb; }
+.home-benefits > div { display: flex; justify-content: center; align-items: center; gap: .8rem; }
+.benefit-icon { display: grid; place-items: center; flex: 0 0 42px; height: 42px; border-radius: 14px; background: #eaf4ef; color: var(--home-teal); font-size: 1.2rem; }
+.home-benefits p { display: flex; flex-direction: column; gap: .18rem; margin: 0; }
+.home-benefits strong { font-size: .9rem; }
+.home-benefits small { color: var(--home-muted); font-size: .76rem; }
+
+
+@media (max-width: 767px) {
+  .home-hero { grid-template-columns: 1fr; padding: 2.5rem 1.5rem 1rem; }
+  .hero-copy h1 { font-size: 3.5rem; }
+  .hero-art { height: 280px; margin-top: .6rem; transform: scale(.85); transform-origin: top center; }
+  .home-benefits { grid-template-columns: 1fr; gap: 1.1rem; padding: 1.6rem .5rem; }
+  .home-benefits > div { justify-content: flex-start; }
+}
+
+@media (max-width: 420px) {
+  .hero-actions { gap: 1rem; }
+}
